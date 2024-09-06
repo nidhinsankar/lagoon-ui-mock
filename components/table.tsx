@@ -1,4 +1,5 @@
 // Import select from shadcn-ui
+import { Input } from "./ui/input";
 import {
   Select,
   SelectContent,
@@ -221,12 +222,15 @@ export default function TableUI() {
   ];
 
   return (
-    <div className="px-4 py-6 w-[calc(100vw-100px)]">
+    <div className="px-4 py-6 w-[calc(100vw-100px)] max-h-screen">
       {/* Filter Section */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-4 gap-1">
+        <div className="flex-1">
+          <Input placeholder="Candidates with 3+ Years of Experience in MERN Stack based out " />
+        </div>
         <div className="flex space-x-4">
           <Select>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-[130px]">
               <SelectValue placeholder="Theme" />
             </SelectTrigger>
             <SelectContent>
@@ -236,7 +240,27 @@ export default function TableUI() {
             </SelectContent>
           </Select>
           <Select>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-[130px]">
+              <SelectValue placeholder="Theme" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="shortlisted">Shortlisted</SelectItem>
+              <SelectItem value="waitlisted">Waitlisted</SelectItem>
+              <SelectItem value="rejected">Rejected</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select>
+            <SelectTrigger className="w-[130px]">
+              <SelectValue placeholder="Theme" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="shortlisted">Shortlisted</SelectItem>
+              <SelectItem value="waitlisted">Waitlisted</SelectItem>
+              <SelectItem value="rejected">Rejected</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select>
+            <SelectTrigger className="w-[130px]">
               <SelectValue placeholder="Theme" />
             </SelectTrigger>
             <SelectContent>
@@ -245,7 +269,7 @@ export default function TableUI() {
             </SelectContent>
           </Select>
           <Select>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-[130px]">
               <SelectValue placeholder="Theme" />
             </SelectTrigger>
             <SelectContent>
@@ -260,11 +284,13 @@ export default function TableUI() {
       </div>
 
       {/* Table */}
-      <div className="w-full overflow-x-auto">
+      <div className="w-full overflow-x-auto max-h-[calc(100vh-150px)] overflow-y-auto">
         <table className="w-full border rounded-lg">
-          <thead>
-            <tr className="bg-gray-100 text-left">
-              <th className="py-2 px-4">Name</th>
+          <thead className="sticky top-0 z-30">
+            <tr className="bg-gray-200 text-left">
+              <th className="py-2 px-4 sticky-column-header bg-gray-200">
+                Name
+              </th>
               <th className="py-2 px-4">Timestamp</th>
               <th className="py-2 px-4">Score</th>
               <th className="py-2 px-4">Status</th>
@@ -289,8 +315,13 @@ export default function TableUI() {
           </thead>
           <tbody>
             {data.map((candidate, index) => (
-              <tr key={index} className="border-t hover:bg-gray-50">
-                <td className="py-2 px-4">{candidate.name}</td>
+              <tr
+                key={index}
+                className="border-t hover:bg-gray-50  table-row-hover"
+              >
+                <td className="py-2 px-4 sticky-column bg-white">
+                  {candidate.name}
+                </td>
                 <td className="py-2 px-4">{candidate.timestamp}</td>
                 <td className="py-2 px-4">{candidate.score}</td>
                 <td className="py-2 px-4">
