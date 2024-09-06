@@ -21,7 +21,7 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex">
+    <div className="flex fixed left-0 top-0 bottom-0 ">
       <div
         className={cn(
           "h-screen flex flex-col justify-between items-start py-4 transition-all duration-300 bg-white shadow-lg",
