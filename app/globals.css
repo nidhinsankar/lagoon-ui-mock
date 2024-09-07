@@ -78,6 +78,11 @@
     @apply z-30;
   }
 
+  td,
+  th {
+    @apply min-w-56 border border-gray-200;
+  }
+
   .table-row-hover:hover .sticky-column {
     @apply bg-gray-50;
   }
